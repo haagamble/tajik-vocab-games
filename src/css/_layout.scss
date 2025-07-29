@@ -3,7 +3,7 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 80vh;
   background-color: tdbc-color("background");
   color: $tdbc-color-body;
   font-family: $tdbc-font-family;
@@ -11,8 +11,8 @@ body {
 
 main,
 main.tdbc-container {
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
 }
 
 footer {
@@ -52,8 +52,8 @@ ul.tdbc-column-container {
   width: 100%;
 
   &--padded {
-    padding-top: 10vh;
-    padding-bottom: 10vh;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
   }
 
   *:last-child {
@@ -63,10 +63,10 @@ ul.tdbc-column-container {
 
 .tdbc-hero {
   display: grid;
-  min-height: 40vh;
+  min-height: 20vh;
   place-content: center;
-  padding-top: 5vh;
-  padding-bottom: 5vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   text-align: center;
 }
 
@@ -89,7 +89,7 @@ ul.tdbc-column-container {
 }
 
 hr {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   border: 1px solid tdbc-color("secondary");
 }
