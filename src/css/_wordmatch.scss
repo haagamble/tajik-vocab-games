@@ -1,33 +1,46 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #f0f4f8;
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 120px);
-    grid-gap: 15px;
-    perspective: 1000px;
-    max-width: 520px;
-    margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+  gap: 12px;
+  justify-content: center;
+  background: #f7f4ea;
+  padding: 16px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .card {
-    width: 120px;
-    height: 80px;
-    cursor: pointer;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background: #2d89ef;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    user-select: none;
+  width: 100%;
+  max-width: 120px;
+  aspect-ratio: 1.4 / 1; /* Keeps cards horizontal and proportional */
+  min-height: 60px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 18px;
+  background: #ffe599;
+  color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1em;
+  user-select: none;
+  border: 2px solid #f1c232;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.card.matched {
+  background: #b6d7a8; /* Green for matched */
+  color: #333;
 }
 
 .card.flipped {
@@ -53,7 +66,7 @@ body {
 
 .card .front {
     background: #2d89ef;
-    color: white;
+    color: black;
 }
 
 .card .back {
@@ -61,4 +74,57 @@ body {
     color: #333;
     transform: rotateY(180deg);
     border: 2px solid #2d89ef;
+}
+
+/* Add to your CSS */
+.congrats-message {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fffbe7;
+  color: #333;
+  padding: 2em 3em;
+  border-radius: 12px;
+  font-size: 1.5em;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  z-index: 1000;
+  text-align: center;
+}
+
+/* Add to your CSS */
+.play-again-btn {
+  margin-top: 1em;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+  background: #ffd966;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.play-again-btn:hover {
+  background: #ffe599;
+}
+
+@media (max-width: 600px) {
+  .game-board {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    padding: 8px;
+    max-width: 100vw;
+  }
+  .card {
+    max-width: 100px;
+    font-size: 1em;
+    min-height: 50px;
+  }
+  .congrats-message {
+    font-size: 1.1em;
+    padding: 1em 0.5em;
+  }
+  .play-again-btn {
+    font-size: 1em;
+    padding: 0.5em 1em;
+  }
 }
