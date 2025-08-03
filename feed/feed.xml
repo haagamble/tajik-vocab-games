@@ -5,7 +5,7 @@
 	
 	<link href="http://localhost:8080/tajik-vocab-games/feed/" rel="self"/>
 	<link href="http://localhost:8080"/>
-	<updated>2025-08-03T18:34:44Z</updated>
+	<updated>2025-08-03T18:49:54Z</updated>
 	<id>http://localhost:8080</id>
 	<author>
 		<name></name>
@@ -14,7 +14,7 @@
 	<entry>
 		<title>About</title>
 		<link href="http://localhost:8080/tajik-vocab-games/about/"/>
-		<updated>2025-08-03T18:34:44Z</updated>
+		<updated>2025-08-03T18:49:54Z</updated>
 		<id>http://localhost:8080/tajik-vocab-games/about/</id>
 		<content type="html">&lt;h2 id=&quot;about-this-app&quot; tabindex=&quot;-1&quot;&gt;About This App&lt;a class=&quot;tdbc-anchor&quot; href=&quot;http://localhost:8080/tajik-vocab-games/about/#about-this-app&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Welcome! This site is designed to help you learn Tajik in a fun and interactive way. Here, you&#39;ll find a growing collection of games and activities to build your Tajik vocabulary and language skills.&lt;/p&gt;
@@ -28,7 +28,7 @@
 	<entry>
 		<title>Multiple Choice Quiz</title>
 		<link href="http://localhost:8080/tajik-vocab-games/multiple-choice/"/>
-		<updated>2025-08-03T18:34:44Z</updated>
+		<updated>2025-08-03T18:49:54Z</updated>
 		<id>http://localhost:8080/tajik-vocab-games/multiple-choice/</id>
 		<content type="html">&lt;div id=&quot;quiz-container&quot; class=&quot;quiz-container&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -97,7 +97,7 @@ function showQuestion() {
 	<entry>
 		<title>Word Match</title>
 		<link href="http://localhost:8080/tajik-vocab-games/word-match/"/>
-		<updated>2025-08-03T18:34:44Z</updated>
+		<updated>2025-08-03T18:49:54Z</updated>
 		<id>http://localhost:8080/tajik-vocab-games/word-match/</id>
 		<content type="html">&lt;div class=&quot;game-board&quot; id=&quot;gameBoard&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
