@@ -44,5 +44,6 @@ module.exports = function (eleventyConfig) {
       output: "public",
       layouts: "_layouts",
     },
+    pathPrefix: "/tajik-vocab-games/",
   };
 };
