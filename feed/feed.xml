@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<title>Tajik Matching Game</title>
-	<subtitle>Have fun playing games while learning Tajik.</subtitle>
+	<title>Tajik Vocab Games</title>
+	<subtitle>Have fun playing games while practicing Tajik vocabulary.</subtitle>
 	
 	<link href="http://localhost:8080/tajik-vocab-games/feed/" rel="self"/>
 	<link href="http://localhost:8080"/>
-	<updated>2025-08-03T19:24:08Z</updated>
+	<updated>2025-08-03T20:29:12Z</updated>
 	<id>http://localhost:8080</id>
 	<author>
 		<name></name>
@@ -14,7 +14,7 @@
 	<entry>
 		<title>About</title>
 		<link href="http://localhost:8080/tajik-vocab-games/about/"/>
-		<updated>2025-08-03T19:24:08Z</updated>
+		<updated>2025-08-03T20:29:12Z</updated>
 		<id>http://localhost:8080/tajik-vocab-games/about/</id>
 		<content type="html">&lt;h2 id=&quot;about-this-app&quot; tabindex=&quot;-1&quot;&gt;About This App&lt;a class=&quot;tdbc-anchor&quot; href=&quot;http://localhost:8080/tajik-vocab-games/about/#about-this-app&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Welcome! This site is designed to help you learn Tajik in a fun and interactive way. Here, you&#39;ll find a growing collection of games and activities to build your Tajik vocabulary and language skills.&lt;/p&gt;
@@ -28,7 +28,7 @@
 	<entry>
 		<title>Multiple Choice Quiz</title>
 		<link href="http://localhost:8080/tajik-vocab-games/multiple-choice/"/>
-		<updated>2025-08-03T19:24:08Z</updated>
+		<updated>2025-08-03T20:29:12Z</updated>
 		<id>http://localhost:8080/tajik-vocab-games/multiple-choice/</id>
 		<content type="html">&lt;div id=&quot;quiz-container&quot; class=&quot;quiz-container&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
@@ -66,7 +66,7 @@ function showQuestion() {
   const distractors = shuffleArray(words.filter(w =&gt; w.tajik !== q.tajik)).slice(0, 3);
   const choices = shuffleArray([q, ...distractors]);
   container.innerHTML = `
-    &lt;div class=&quot;quiz-q&quot;&gt; &lt;b&gt;${q.english}&lt;/b&gt;?&lt;/div&gt;
+    &lt;div class=&quot;quiz-q&quot;&gt; &lt;b&gt;${q.english}&lt;/b&gt;&lt;/div&gt;
     &lt;div class=&quot;quiz-choices&quot;&gt;
       ${choices.map(c =&gt; `&lt;button class=&quot;quiz-choice&quot; onclick=&quot;checkAnswer(&#39;${c.tajik.replace(/&#39;/g,&quot;\\&#39;&quot;)}&#39;)&quot;&gt;${c.tajik}&lt;/button&gt;`).join(&#39;&#39;)}
     &lt;/div&gt;
@@ -97,7 +97,7 @@ function showQuestion() {
 	<entry>
 		<title>Word Match</title>
 		<link href="http://localhost:8080/tajik-vocab-games/word-match/"/>
-		<updated>2025-08-03T19:24:08Z</updated>
+		<updated>2025-08-03T20:29:12Z</updated>
 		<id>http://localhost:8080/tajik-vocab-games/word-match/</id>
 		<content type="html">&lt;div class=&quot;game-board&quot; id=&quot;gameBoard&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
