@@ -7,7 +7,7 @@ description: "Match English words to their Tajik translations."
 
 <script>
   // Load word pairs from the JSON file
-fetch('/assets/data/first-100-words.json')
+fetch('{{ "/assets/data/first-100-words.json" | url }}')
   .then(response => response.json())
   .then(data => {
     // Shuffle the full list

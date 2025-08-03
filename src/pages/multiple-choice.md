@@ -11,7 +11,7 @@ let quizWords = [];
 let current = 0;
 let score = 0;
 
-fetch('/assets/data/first-100-words.json')
+fetch('{{ "/assets/data/first-100-words.json" | url }}')
   .then(res => res.json())
   .then(data => {
     words = data;
