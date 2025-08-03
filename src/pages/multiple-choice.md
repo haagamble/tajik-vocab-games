@@ -40,7 +40,7 @@ function showQuestion() {
   const distractors = shuffleArray(words.filter(w => w.tajik !== q.tajik)).slice(0, 3);
   const choices = shuffleArray([q, ...distractors]);
   container.innerHTML = `
-    <div class="quiz-q"> <b>${q.english}</b>?</div>
+    <div class="quiz-q"> <b>${q.english}</b></div>
     <div class="quiz-choices">
       ${choices.map(c => `<button class="quiz-choice" onclick="checkAnswer('${c.tajik.replace(/'/g,"\\'")}')">${c.tajik}</button>`).join('')}
     </div>
