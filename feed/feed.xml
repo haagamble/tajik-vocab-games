@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Tajik Matching Game</title>
+	<subtitle>Have fun playing games while learning Tajik.</subtitle>
+	
+	<link href="http://localhost:8080/feed/" rel="self"/>
+	<link href="http://localhost:8080"/>
+	<updated>2025-08-03T17:48:30Z</updated>
+	<id>http://localhost:8080</id>
+	<author>
+		<name></name>
+	</author>
+	
+	<entry>
+		<title>About</title>
+		<link href="http://localhost:8080/about/"/>
+		<updated>2025-08-03T17:48:30Z</updated>
+		<id>http://localhost:8080/about/</id>
+		<content type="html">&lt;h2 id=&quot;about-this-app&quot; tabindex=&quot;-1&quot;&gt;About This App&lt;a class=&quot;tdbc-anchor&quot; href=&quot;http://localhost:8080/about/#about-this-app&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Welcome! This site is designed to help you learn Tajik in a fun and interactive way. Here, you&#39;ll find a growing collection of games and activities to build your Tajik vocabulary and language skills.&lt;/p&gt;
+&lt;p&gt;The first game, &lt;strong&gt;Word Match&lt;/strong&gt;, lets you practice matching English words to their Tajik translations. More games and features are planned to make your learning journey even more engaging.&lt;/p&gt;
+&lt;p&gt;If you have suggestions or want to follow updates, check out my website: &lt;a href=&quot;https://talktajiktoday.com/&quot;&gt;talktajiktoday.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can also find me on GitHub: &lt;a href=&quot;https://github.com/haagamble&quot;&gt;@haagamble&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Happy learning!&lt;/p&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Multiple Choice Quiz</title>
+		<link href="http://localhost:8080/multiple-choice/"/>
+		<updated>2025-08-03T17:48:30Z</updated>
+		<id>http://localhost:8080/multiple-choice/</id>
+		<content type="html">&lt;div id=&quot;quiz-container&quot; class=&quot;quiz-container&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+let words = [];
+let quizWords = [];
+let current = 0;
+let score = 0;
+
+fetch(&#39;/assets/data/first-100-words.json&#39;)
+  .then(res =&gt; res.json())
+  .then(data =&gt; {
+    words = data;
+    quizWords = shuffleArray([...words]).slice(0, 20);
+    showQuestion();
+  });
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i &gt; 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+function showQuestion() {
+  const container = document.getElementById(&#39;quiz-container&#39;);
+  container.innerHTML = &#39;&#39;;
+  if (current &gt;= quizWords.length) {
+    container.innerHTML = `&lt;div class=&quot;quiz-result&quot;&gt;Quiz complete!&lt;br&gt;Score: ${score} / ${quizWords.length}
+      &lt;br&gt;&lt;button onclick=&quot;window.location.reload()&quot;&gt;Play Again&lt;/button&gt;&lt;/div&gt;`;
+    return;
+  }
+  const q = quizWords[current];
+  // Get 3 random distractors (not the correct answer)
+  const distractors = shuffleArray(words.filter(w =&gt; w.tajik !== q.tajik)).slice(0, 3);
+  const choices = shuffleArray([q, ...distractors]);
+  container.innerHTML = `
+    &lt;div class=&quot;quiz-q&quot;&gt; &lt;b&gt;${q.english}&lt;/b&gt;?&lt;/div&gt;
+    &lt;div class=&quot;quiz-choices&quot;&gt;
+      ${choices.map(c =&gt; `&lt;button class=&quot;quiz-choice&quot; onclick=&quot;checkAnswer(&#39;${c.tajik.replace(/&#39;/g,&quot;\\&#39;&quot;)}&#39;)&quot;&gt;${c.tajik}&lt;/button&gt;`).join(&#39;&#39;)}
+    &lt;/div&gt;
+    &lt;div class=&quot;quiz-progress&quot;&gt;Question ${current + 1} of ${quizWords.length}&lt;/div&gt;
+  `;
+  window.checkAnswer = function(answer) {
+    const correct = q.tajik;
+    const btns = document.querySelectorAll(&#39;.quiz-choice&#39;);
+    btns.forEach(btn =&gt; {
+      if (btn.textContent === correct) {
+        btn.classList.add(&#39;correct&#39;);
+      } else if (btn.textContent === answer) {
+        btn.classList.add(&#39;incorrect&#39;);
+      }
+      btn.disabled = true;
+    });
+    if (answer === correct) score++;
+    setTimeout(() =&gt; {
+      current++;
+      showQuestion();
+    }, 900);
+  }
+}
+&lt;/script&gt;
+</content>
+	</entry>
+	
+	<entry>
+		<title>Word Match</title>
+		<link href="http://localhost:8080/word-match/"/>
+		<updated>2025-08-03T17:48:30Z</updated>
+		<id>http://localhost:8080/word-match/</id>
+		<content type="html">&lt;div class=&quot;game-board&quot; id=&quot;gameBoard&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+  // Load word pairs from the JSON file
+fetch(&#39;/assets/data/first-100-words.json&#39;)
+  .then(response =&gt; response.json())
+  .then(data =&gt; {
+    // Shuffle the full list
+    const shuffled = data.sort(() =&gt; 0.5 - Math.random());
+    // Take 6 random pairs
+    const selectedPairs = shuffled.slice(0, 6);
+
+    // Duplicate and mix English/Tajik for the game
+    const gameCards = [];
+    selectedPairs.forEach(pair =&gt; {
+      gameCards.push({ text: pair.english, pairId: pair.english });
+      gameCards.push({ text: pair.tajik, pairId: pair.english });
+    });
+
+    // Shuffle the game cards
+    const shuffledCards = gameCards.sort(() =&gt; 0.5 - Math.random());
+
+    // Render cards to the board
+    const board = document.getElementById(&#39;gameBoard&#39;);
+    shuffledCards.forEach((card, index) =&gt; {
+      const cardDiv = document.createElement(&#39;div&#39;);
+      cardDiv.className = &#39;card&#39;;
+      cardDiv.dataset.pairId = card.pairId;
+      cardDiv.innerText = &#39;&#39;; // Start face-down
+      cardDiv.addEventListener(&#39;click&#39;, () =&gt; flipCard(cardDiv, card.text));
+      board.appendChild(cardDiv);
+    });
+  });
+
+let flippedCards = [];
+let isBusy = false;
+// track how many tries
+let tries = 0
+
+function flipCard(cardDiv, text) {
+  if (isBusy) return; // Prevent clicks while busy
+  if (cardDiv.classList.contains(&#39;matched&#39;) || flippedCards.includes(cardDiv)) return;
+
+  cardDiv.innerText = text;
+  flippedCards.push(cardDiv);
+
+  if (flippedCards.length === 2) {
+    tries++; // Increment tries count
+    isBusy = true; // Prevent further clicks
+    const [card1, card2] = flippedCards;
+    const isMatch = card1.dataset.pairId === card2.dataset.pairId;
+
+  if (isMatch) {
+      // Instantly show matched color
+      card1.classList.add(&#39;matched&#39;);
+      card2.classList.add(&#39;matched&#39;);
+    }
+
+    setTimeout(() =&gt; {
+      if (isMatch) {
+
+        // Check if all cards are matched
+        const allMatched = Array.from(document.querySelectorAll(&#39;.card&#39;))
+          .every(card =&gt; card.classList.contains(&#39;matched&#39;));
+        if (allMatched) {
+          showCongratsMessage();
+        }
+      } else {
+        card1.innerText = &#39;&#39;;
+        card2.innerText = &#39;&#39;;
+      }
+      flippedCards = [];
+      isBusy = false; // Allow further clicks
+    }, 1000);
+  }
+}
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i &gt; 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
+  function renderCards(cards) {
+    const gameBoard = document.getElementById(&#39;gameBoard&#39;);
+    cards.forEach(card =&gt; {
+      const div = document.createElement(&#39;div&#39;);
+      div.className = &#39;card&#39;;
+      div.textContent = card.text;
+      div.dataset.pairId = card.pairId;
+      gameBoard.appendChild(div);
+    });
+
+    let selected = [];
+
+    gameBoard.addEventListener(&#39;click&#39;, (event) =&gt; {
+      const clicked = event.target;
+      if (!clicked.classList.contains(&#39;card&#39;) || selected.includes(clicked)) return;
+
+      clicked.classList.add(&#39;flipped&#39;);
+      selected.push(clicked);
+
+      if (selected.length === 2) {
+        const [first, second] = selected;
+        if (first.dataset.pairId === second.dataset.pairId) {
+          first.classList.add(&#39;matched&#39;);
+          second.classList.add(&#39;matched&#39;);
+        } else {
+          setTimeout(() =&gt; {
+            first.classList.remove(&#39;flipped&#39;);
+            second.classList.remove(&#39;flipped&#39;);
+          }, 1000);
+        }
+        selected = [];
+      }
+    });
+  }
+
+  function showCongratsMessage() {
+  const msg = document.createElement(&#39;div&#39;);
+  msg.innerText = `🎉 Congratulations! You matched all the words!\nTries: ${tries}`;
+  msg.className = &#39;congrats-message&#39;;
+  // Create Play Again button
+  const btn = document.createElement(&#39;button&#39;);
+  btn.innerText = &#39;Play again&#39;;
+  btn.className = &#39;play-again-btn&#39;;
+  btn.onclick = () =&gt; window.location.reload();
+
+  msg.appendChild(document.createElement(&#39;br&#39;));
+  msg.appendChild(btn);
+  document.body.appendChild(msg);
+}
+&lt;/script&gt;
+</content>
+	</entry>
+</feed>

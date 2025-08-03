@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://localhost:8080/</loc>
+		
+    <lastmod>2025-08-03T17:48:30Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://localhost:8080/about/</loc>
+		
+    <lastmod>2025-08-03T17:48:30Z</lastmod>
+		
+  </url>
+  
+  <url>
+    <loc>http://localhost:8080/multiple-choice/</loc>
+		
+    <lastmod>2025-08-03T17:48:30Z</lastmod>
+		
+  </url>
+  
+  <url>
+    <loc>http://localhost:8080/word-match/</loc>
+		
+    <lastmod>2025-08-03T17:48:30Z</lastmod>
+		
+  </url>
+</urlset>
