@@ -3,9 +3,9 @@
 	<title>Tajik Matching Game</title>
 	<subtitle>Have fun playing games while learning Tajik.</subtitle>
 	
-	<link href="http://localhost:8080/feed/" rel="self"/>
+	<link href="http://localhost:8080/tajik-vocab-games/feed/" rel="self"/>
 	<link href="http://localhost:8080"/>
-	<updated>2025-08-03T17:48:30Z</updated>
+	<updated>2025-08-03T18:12:56Z</updated>
 	<id>http://localhost:8080</id>
 	<author>
 		<name></name>
@@ -13,10 +13,10 @@
 	
 	<entry>
 		<title>About</title>
-		<link href="http://localhost:8080/about/"/>
-		<updated>2025-08-03T17:48:30Z</updated>
-		<id>http://localhost:8080/about/</id>
-		<content type="html">&lt;h2 id=&quot;about-this-app&quot; tabindex=&quot;-1&quot;&gt;About This App&lt;a class=&quot;tdbc-anchor&quot; href=&quot;http://localhost:8080/about/#about-this-app&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+		<link href="http://localhost:8080/tajik-vocab-games/about/"/>
+		<updated>2025-08-03T18:12:56Z</updated>
+		<id>http://localhost:8080/tajik-vocab-games/about/</id>
+		<content type="html">&lt;h2 id=&quot;about-this-app&quot; tabindex=&quot;-1&quot;&gt;About This App&lt;a class=&quot;tdbc-anchor&quot; href=&quot;http://localhost:8080/tajik-vocab-games/about/#about-this-app&quot; aria-hidden=&quot;true&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;Welcome! This site is designed to help you learn Tajik in a fun and interactive way. Here, you&#39;ll find a growing collection of games and activities to build your Tajik vocabulary and language skills.&lt;/p&gt;
 &lt;p&gt;The first game, &lt;strong&gt;Word Match&lt;/strong&gt;, lets you practice matching English words to their Tajik translations. More games and features are planned to make your learning journey even more engaging.&lt;/p&gt;
 &lt;p&gt;If you have suggestions or want to follow updates, check out my website: &lt;a href=&quot;https://talktajiktoday.com/&quot;&gt;talktajiktoday.com&lt;/a&gt;&lt;/p&gt;
@@ -27,9 +27,9 @@
 	
 	<entry>
 		<title>Multiple Choice Quiz</title>
-		<link href="http://localhost:8080/multiple-choice/"/>
-		<updated>2025-08-03T17:48:30Z</updated>
-		<id>http://localhost:8080/multiple-choice/</id>
+		<link href="http://localhost:8080/tajik-vocab-games/multiple-choice/"/>
+		<updated>2025-08-03T18:12:56Z</updated>
+		<id>http://localhost:8080/tajik-vocab-games/multiple-choice/</id>
 		<content type="html">&lt;div id=&quot;quiz-container&quot; class=&quot;quiz-container&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
 let words = [];
@@ -96,9 +96,9 @@ function showQuestion() {
 	
 	<entry>
 		<title>Word Match</title>
-		<link href="http://localhost:8080/word-match/"/>
-		<updated>2025-08-03T17:48:30Z</updated>
-		<id>http://localhost:8080/word-match/</id>
+		<link href="http://localhost:8080/tajik-vocab-games/word-match/"/>
+		<updated>2025-08-03T18:12:56Z</updated>
+		<id>http://localhost:8080/tajik-vocab-games/word-match/</id>
 		<content type="html">&lt;div class=&quot;game-board&quot; id=&quot;gameBoard&quot;&gt;&lt;/div&gt;
 &lt;script&gt;
   // Load word pairs from the JSON file
