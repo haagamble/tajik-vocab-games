@@ -2,7 +2,7 @@
 
 <nav class="tdbc-sitenav">
   <div class="tdbc-sitenav__container">
-    <a id="tdbc-siteid" href="/"
+    <a id="tdbc-siteid" href="{{ '/' | url }}"
     {% if currentUrl === '/' %}aria-current="page"{% endif %}
     >{{ meta.siteName }}</a>
     <ul role="list" class="tdbc-sitenav__navlist tdbc-list-unstyled">

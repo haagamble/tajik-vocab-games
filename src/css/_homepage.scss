@@ -1,0 +1,62 @@
+.tdbc-column-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap; /* wrap cards to new rows */
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+  list-style: none;
+}
+
+.tdbc-card {
+  background-color: #fffbe7;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+  padding: 1.5rem;
+  flex: 1 1 calc((100% / 3) - 1rem); /* three cards per row minus gap */
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px; /* set a minimum height for consistency */
+  box-sizing: border-box; /* include padding and border in width/height */
+}
+
+/* Optional: ensure links inside cards do not shrink the card */
+.tdbc-card__content {
+  flex-grow: 1;
+}
+
+.tdbc-card__title {
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #171392;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+}
+
+.tdbc-card__title:hover,
+.tdbc-card__title:focus {
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Responsive tweak for smaller screens */
+@media (max-width: 900px) {
+  .tdbc-card {
+    flex: 1 1 calc((100% / 2) - 1rem); /* two cards per row on medium screens */
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .tdbc-column-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tdbc-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
